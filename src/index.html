@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nerd Jokes - Normal people won't just get it</title>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="topbar">
+        <div class="fill">
+            <div class="container">
+                <a href="#" class="brand">Nerd Jokes</a>
+            </div>
+        </div>
+    </div>
+    <!--end of .topbar-->
+
+    <div class="container">
+        <div class="content">
+            <div class="page-header">
+                <h1>Nerd Jokes<small>Normal people won't just get it</small></h1>
+            </div>
+            <div class="row">
+                <div class="span8 offset3">
+
+                    {% for tweet in tweets %}
+                    <div class="tweet-item">
+                        <img src="{{ tweet.profile_pic }}"  class="profile-pic" />
+                        <div class="tweet-anchor"></div>
+                        <div class="tweet-bubble">
+                            <div class="tweet-content">
+                                <p>{{ tweet.text|linkify:"tweet-url"|hashify }}</p>
+                                <span class="username">{{ tweet.real_name }}</span>
+                                <span class="created-date">{{ tweet.created_at }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <!--end of .row-->
+        </div>
+        <!--end of .content-->
+
+        <footer>
+        	<p>&copy; Kaung Htet Zaw</p>
+        </footer>
+    </div>
+    <!--end of .container-->
+</body>
+</html>
